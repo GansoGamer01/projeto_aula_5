@@ -93,6 +93,18 @@ li
     gap: 16px;
 }
 
+a
+{
+    background-color: blanchedalmond;
+    padding: 2px;
+}
+
+a:hover
+{
+    transform: (1,1);
+    transition: 0.5s;
+}
+
 .btn_reddit_inc
 {
     font-size: 15px;

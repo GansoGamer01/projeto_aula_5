@@ -10,24 +10,26 @@ async function getAllPosts() {
     const result = await response.json()
     console.log(result,"response await")
     result.forEach((item)=>{
+        
         const ul = document.querySelector("ul")
         ul.insertAdjacentHTML("beforeend",`
             <li>
             <p>${item.title}<p>
             <p>${item.body}<p>
-            <button>Comentários</button>
+            <button id=${item.id}>Comentários</button>
             </li>
             `)
+            const btnPost = document.getElementById(item.id)
+            btnPost.addEventListener("click",()=>{
+                localStorage.setItem("postId",item.id)
+                localStorage.setItem("post",JSON.stringify(item))
+                window.location.href = "./POST/index.html"
+            })
     })
 }
 getAllPosts()
 
-let id = 0
-const btn = document.querySelector("button")
-btn.addEventListener("click",()=>{
-    localStorage.setItem("postID",28)
-    window.location.href = "/post"
-})
+
 
 const post_content = {
     body
